@@ -1,4 +1,8 @@
 @media all and (min-width: 800px) {
+  input {
+    width: 100%;
+  }
+  
   .cart-item {
     width: 100%;
     min-width: 400px;
@@ -11,10 +15,39 @@
     border-radius: 2px;
     background-color: #EEEEEE;
   }
+
+  .empty-cart {
+    width: 100%;
+    min-width: 400px;
+    max-width: 450px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px 32px;
+    margin-bottom: 8px;
+    border-radius: 2px;
+    background-color: #f0ad4e;
+    color: #FFFFFF
+  }
+
+  .empty-cart span {
+    width: 100%;
+    text-align: center;
+    color: #FFFFFF
+  }
+
+  .purchaseBtn {
+    margin-bottom: 20px;
+  }
 }
 
 /* Mobile demo on: Galaxy S5 */
 @media all and (max-width: 360px) {
+  input {
+    width: 100%;
+    min-width: 325px;
+  }
+
   .cart-item {
     width: 100%;
     min-width: 325px;
@@ -26,5 +59,28 @@
     margin-bottom: 8px;
     border-radius: 2px;
     background-color: #EEEEEE;
+  }
+
+  .empty-cart {
+    width: 100%;
+    min-width: 325px;
+    max-width: 450px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px 32px;
+    margin-bottom: 8px;
+    border-radius: 2px;
+    background-color: #f0ad4e;
+  }
+
+  .empty-cart span {
+    width: 100%;
+    text-align: center;
+    color: #FFFFFF
+  }
+
+  .purchaseBtn {
+    margin-bottom: 20px;
   }
 }
