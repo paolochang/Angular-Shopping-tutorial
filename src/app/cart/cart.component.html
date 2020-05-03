@@ -1,10 +1,59 @@
 <h3>Cart</h3>
 
-<p>
-  <a routerLink="/shipping">Shipping Prices</a>
-</p>
-
 <div class="cart-item" *ngFor="let item of items">
   <span>{{ item.name }}</span>
   <span>{{ item.price | currency }}</span>
 </div>
+
+<div class="empty-cart" *ngIf="items == 0">
+  <span>Cart is empty</span>
+</div>
+
+<p>
+  <a routerLink="/shipping">Shipping Prices</a>
+</p>
+
+<form [formGroup]="checkoutForm"
+  *ngIf="items.length"
+  (ngSubmit)="onSubmit(checkoutForm.value)">
+
+  <h3>Shipping Information</h3>
+
+  <div>
+    <label for="name">
+      Name
+    </label>
+    <input id="name" type="text" formControlName="name">
+  </div>
+
+  <div>
+    <label for="street">
+      Street
+    </label>
+    <input id="street" type="text" formControlName="street">
+  </div>
+
+  <div>
+    <label for="city">
+      City
+    </label>
+    <input id="city" type="text" formControlName="city">
+  </div>
+
+  <div>
+    <label for="province">
+      Province
+    </label>
+    <input id="province" type="text" formControlName="province">
+  </div>
+
+  <div>
+    <label for="country">
+      Country
+    </label>
+    <input id="country" type="text" formControlName="country">
+  </div>
+
+  <button class="button purchaseBtn" type="submit">Purchase</button>
+
+</form>
