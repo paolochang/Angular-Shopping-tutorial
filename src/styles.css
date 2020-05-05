@@ -104,6 +104,13 @@ label {
   padding-right: 4px;
 }
 
+/* Toastr position */
+.toast-custom {
+  top: 100px;
+  right: 30px;
+  margin: 0 auto;
+}
+
 /* Top Bar */
 
 app-top-bar {
