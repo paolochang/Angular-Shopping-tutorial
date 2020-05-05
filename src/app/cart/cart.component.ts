@@ -13,6 +13,9 @@ import { CartService } from '../cart.service';
 export class CartComponent implements OnInit {
 
   items;
+  itemsTotal;
+  shpping;
+  finalTotal;
   checkoutForm;
 
   constructor(
@@ -32,6 +35,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.items = this.cartService.getItems();
+    this.itemsTotal = this.cartService.getItemsTotal();
   }
 
   onFormValidation(customerData) {
