@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 import { CartService } from '../cart.service';
 
@@ -18,6 +19,7 @@ export class CartComponent implements OnInit {
     private cartService: CartService,
     private formBuilder: FormBuilder,
     private router: Router,
+    private toastr: ToastrService,
   ) {
     this.checkoutForm = this.formBuilder.group({
       name: '',
@@ -30,7 +32,6 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.items = this.cartService.getItems();
-    window.alert(this.items.length);
   }
 
   onFormValidation(customerData) {
@@ -79,7 +80,11 @@ export class CartComponent implements OnInit {
       this.checkoutForm.reset();
       this.router.navigate(['/']);
 
-      console.warn('Your order has been submitted', customerData);
+      // console.warn('Your order has been submitted', customerData);
+      this.toastr.success('Your order has been submitted', '', { timeOut: 2000 });
+    }
+    else {
+      this.toastr.warning('Please complete shipping information.', '', { timeOut: 2000 });
     }
 
   }
