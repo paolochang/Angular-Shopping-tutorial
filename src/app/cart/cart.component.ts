@@ -13,9 +13,9 @@ import { CartService } from '../cart.service';
 export class CartComponent implements OnInit {
 
   items;
-  itemsTotal;
-  shpping;
-  finalTotal;
+  itemsTotal: number;
+  shppingCost: number;
+  finalTotal: number;
   checkoutForm;
 
   constructor(
@@ -36,7 +36,15 @@ export class CartComponent implements OnInit {
   ngOnInit() {
     this.items = this.cartService.getItems();
     this.itemsTotal = this.cartService.getItemsTotal();
+    this.shppingCost = this.cartService.getShippingCost();
+    window.console.log(this.shppingCost + "<- Shipping cost")
+    // this.shppingCost = this.cartService.getShippingCost();
+    // if (this.shppingCost) {
+    //   window.console.log("Shipping changed: ");
+    //   this.shppingCost = this.cartService.getShippingCost();
+    // }
   }
+
 
   onFormValidation(customerData) {
     let isValid = this.onDataValidation('name', customerData.name);
