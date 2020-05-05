@@ -9,6 +9,20 @@
   <span>Cart is empty</span>
 </div>
 
+<div class="cart-summary" *ngIf="items.length">
+  <hr/>
+  <div>
+    <span>Sub-total:</span><span>{{ itemsTotal }}</span>
+  </div>
+  <div>
+    <span>Shipping:</span><span>{{ shipping }}</span>
+  </div>
+  <hr/>
+  <div>
+    <span>Total:</span><span>{{finalToal}}</span>
+  </div>
+</div>
+
 <p>
   <a routerLink="/shipping">Shipping Prices</a>
 </p>

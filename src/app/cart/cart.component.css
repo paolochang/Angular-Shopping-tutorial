@@ -25,15 +25,13 @@
     justify-content: space-between;
     padding: 16px 32px;
     margin-bottom: 8px;
-    border-radius: 2px;
-    background-color: #f0ad4e;
-    color: #FFFFFF
+    border-radius: 3px;
+    border: 2px dashed;
   }
 
   .empty-cart span {
     width: 100%;
     text-align: center;
-    color: #FFFFFF
   }
 
   .purchaseBtn {
@@ -70,14 +68,13 @@
     justify-content: space-between;
     padding: 16px 32px;
     margin-bottom: 8px;
-    border-radius: 2px;
-    background-color: #f0ad4e;
+    border-radius: 3px;
+    border: 2px dashed;
   }
 
   .empty-cart span {
     width: 100%;
     text-align: center;
-    color: #FFFFFF
   }
 
   .purchaseBtn {
