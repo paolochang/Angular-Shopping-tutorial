@@ -14,7 +14,7 @@ export class CartComponent implements OnInit {
 
   items;
   itemsTotal: number;
-  shppingCost: number;
+  shippingCost: number;
   finalTotal: number;
   checkoutForm;
 
@@ -36,8 +36,8 @@ export class CartComponent implements OnInit {
   ngOnInit() {
     this.items = this.cartService.getItems();
     this.itemsTotal = this.cartService.getItemsTotal();
-    this.shppingCost = this.cartService.getShippingCost();
-    window.console.log(this.shppingCost + "<- Shipping cost")
+    this.shippingCost = this.cartService.getShippingCost();
+    this.finalTotal = this.cartService.getFinalTotal();
     // this.shppingCost = this.cartService.getShippingCost();
     // if (this.shppingCost) {
     //   window.console.log("Shipping changed: ");
