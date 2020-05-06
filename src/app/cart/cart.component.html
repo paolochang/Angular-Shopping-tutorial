@@ -11,15 +11,17 @@
 
 <div class="cart-summary" *ngIf="items.length">
   <hr/>
-  <div>
-    <span>Sub-total:</span><span>{{ itemsTotal }}</span>
+  <div class="billingEntry">
+    <span>Sub-total:</span><span class="billingCost">{{ itemsTotal }}</span>
   </div>
-  <div>
-    <span>Shipping:</span><span>{{ shipping }}</span>
+  <div class="billingEntry">
+    <span>Shipping:</span>
+    <span class="billingCost" *ngIf="shippingCost">{{ shippingCost }}</span>
+    <span class="billingCost" *ngIf="shippingCost == 0">Please select shipping option</span>
   </div>
   <hr/>
-  <div>
-    <span>Total:</span><span>{{finalToal}}</span>
+  <div class="billingEntry total">
+    <span>Total:</span><span class="billingCost">{{ finalTotal }}</span>
   </div>
 </div>
 

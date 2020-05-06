@@ -34,6 +34,14 @@
     text-align: center;
   }
 
+  .billing {
+    float: right;
+  }
+
+  .total {
+    font-weight: bold;
+  }
+
   .purchaseBtn {
     margin-bottom: 20px;
   }
@@ -75,6 +83,18 @@
   .empty-cart span {
     width: 100%;
     text-align: center;
+  }
+
+  .billingEntry {
+    margin: 10px 0;
+  }
+
+  .billingCost {
+    float: right;
+  }
+
+  .total {
+    font-weight: bold;
   }
 
   .purchaseBtn {
