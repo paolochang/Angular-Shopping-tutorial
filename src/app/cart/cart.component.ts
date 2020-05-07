@@ -13,31 +13,22 @@ import { CartService } from '../cart.service';
 export class CartComponent implements OnInit {
 
   items;
-  itemsTotal: number;
-  shippingCost: number;
-  finalTotal: number;
-  checkoutForm;
+  // itemsTotal: number;
+  // shippingCost: number;
+  // finalTotal: number;
+  // checkoutForm;
 
   constructor(
     private cartService: CartService,
-    private formBuilder: FormBuilder,
     private router: Router,
     private toastr: ToastrService,
-  ) {
-    this.checkoutForm = this.formBuilder.group({
-      name: '',
-      street: '',
-      city: '',
-      province: '',
-      country: ''
-    });
-   }
+  ) {}
 
   ngOnInit() {
     this.items = this.cartService.getItems();
-    this.itemsTotal = this.cartService.getItemsTotal();
-    this.shippingCost = this.cartService.getShippingCost();
-    this.finalTotal = this.cartService.getFinalTotal();
+    // this.itemsTotal = this.cartService.getItemsTotal();
+    // this.shippingCost = this.cartService.getShippingCost();
+    // this.finalTotal = this.cartService.getFinalTotal();
     // this.shppingCost = this.cartService.getShippingCost();
     // if (this.shppingCost) {
     //   window.console.log("Shipping changed: ");
@@ -89,7 +80,7 @@ export class CartComponent implements OnInit {
     // Process checkout data here
     if (this.onFormValidation(customerData)) { 
       this.items = this.cartService.clearCart();
-      this.checkoutForm.reset();
+      // this.checkoutForm.reset();
       this.router.navigate(['/']);
 
       // console.warn('Your order has been submitted', customerData);
