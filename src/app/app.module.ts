@@ -29,8 +29,8 @@ import { AddressComponent } from './purchase-address/purchase-address.component'
       { path: '', component: ProductListComponent },
       { path: 'products/:productId', component: ProductDetailsComponent },
       { path: 'cart', component: CartComponent },
-      { path: 'shipping', component: ShippingComponent },
-      { path: 'address', component: AddressComponent },
+      { path: 'purchase/shipping', component: ShippingComponent },
+      { path: 'purchase/address', component: AddressComponent },
     ])
   ],
   declarations: [

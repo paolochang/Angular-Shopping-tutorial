@@ -11,10 +11,10 @@ import { AddressService } from '../purchase-address.service';
 })
 export class AddressComponent implements OnInit {
 
-  checkoutForm;;
+  checkoutForm;
 
   constructor(
-    private addressService: AddressComponent,
+    private addressService: AddressService,
     private formBuilder: FormBuilder,
     // private router: Router,
   ) {
