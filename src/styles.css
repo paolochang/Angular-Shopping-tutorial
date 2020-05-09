@@ -91,6 +91,18 @@ label {
   cursor: auto;
 }
 
+.button-left-container, .button-right-container {
+  margin-top: 10px;
+}
+
+.button-left-container {
+  float: left;
+}
+
+.button-right-container {
+  float: right;
+}
+
 /* Fancy Button */
 
 .fancy-button {
