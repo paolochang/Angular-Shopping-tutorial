@@ -17,6 +17,7 @@ import { PurchaseComponent } from './purchase/purchase.component';
 import { ShippingComponent } from './purchase-shipping/purchase-shipping.component';
 import { AddressComponent } from './purchase-address/purchase-address.component';
 import { PaymentComponent } from './purchase-payment/purchase-payment.component';
+import { ConfirmationComponent } from './purchase-confirmation/purchase-confirmation.component';
 
 @NgModule({
   imports: [
@@ -33,14 +34,7 @@ import { PaymentComponent } from './purchase-payment/purchase-payment.component'
       { path: '', component: ProductListComponent },
       { path: 'products/:productId', component: ProductDetailsComponent },
       { path: 'cart', component: CartComponent },
-      { 
-        path: 'purchase', component: PurchaseComponent,
-        children: [
-          { path: 'shipping', component: ShippingComponent },
-          { path: 'address', component: AddressComponent },
-          { path: 'payment', component: PaymentComponent },
-        ]
-      },
+      { path: 'purchase', component: PurchaseComponent },
     ]),
   ],
   declarations: [
@@ -54,6 +48,7 @@ import { PaymentComponent } from './purchase-payment/purchase-payment.component'
     ShippingComponent,
     AddressComponent,
     PaymentComponent,
+    ConfirmationComponent,
   ],
   bootstrap: [ AppComponent ]
 })
