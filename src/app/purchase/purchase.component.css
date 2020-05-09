@@ -1,3 +1,22 @@
-router-outlet + *  {
-  padding: 0px !important;
+:host ::ng-deep .mat-stepper-label-position-bottom .mat-horizontal-stepper-header {
+  padding: 18px 0 0 0;
+}
+
+:host ::ng-deep .mat-stepper-horizontal-line {
+  top: 30px !important;
+}
+
+:host ::ng-deep .mat-stepper-label-position-bottom 
+.mat-horizontal-stepper-header:not(:first-child)::before,
+:host ::ng-deep .mat-stepper-label-position-bottom 
+.mat-horizontal-stepper-header:not(:last-child)::after {
+  top: 30px !important;
+}
+
+:host ::ng-deep .mat-stepper-label-position-bottom {
+  padding-bottom: 0px;
+}
+
+:host ::ng-deep .mat-horizontal-content-container {
+  padding: 0 !important;
 }

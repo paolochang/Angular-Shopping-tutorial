@@ -16,8 +16,8 @@ body {
   flex-direction: row;
 }
 
-router-outlet + *  {
-  padding: 0 16px;
+.main-router  {
+  padding: 0 8px;
 }
 
 /* Text */
