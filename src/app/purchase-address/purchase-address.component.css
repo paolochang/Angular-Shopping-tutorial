@@ -1,0 +1,16 @@
+@media all and (min-width: 800px) {
+  .address-form {
+    width: 100%;
+    min-width: 400px;
+    max-width: 450px;
+  }
+}
+
+/* Mobile demo on: Galaxy S5 */
+@media all and (max-width: 360px) {
+  .address-form {
+    width: 100%;
+    min-width: 325px;
+    max-width: 450px;
+  }
+}

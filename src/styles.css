@@ -2,7 +2,6 @@
 
 * {
   font-family: 'Roboto', Arial, sans-serif;
-  color: #616161;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17,8 +16,8 @@ body {
   flex-direction: row;
 }
 
-router-outlet + *  {
-  padding: 0 16px;
+.main-router  {
+  padding: 0 8px;
 }
 
 /* Text */
@@ -90,6 +89,18 @@ label {
 .button:disabled, button:disabled {
   opacity: 0.5;
   cursor: auto;
+}
+
+.button-left-container, .button-right-container {
+  margin-top: 10px;
+}
+
+.button-left-container {
+  float: left;
+}
+
+.button-right-container {
+  float: right;
 }
 
 /* Fancy Button */

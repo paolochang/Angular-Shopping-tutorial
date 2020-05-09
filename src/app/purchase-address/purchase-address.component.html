@@ -1,0 +1,50 @@
+<form [formGroup]="checkoutForm"
+  (ngSubmit)="onSubmit(checkoutForm.value)">
+
+  <h3>Shipping Information</h3>
+
+  <div>
+    <label for="name">
+      Name
+    </label>
+    <input id="name" class="address-form" type="text" formControlName="name">
+  </div>
+
+  <div>
+    <label for="street">
+      Street
+    </label>
+    <input id="street" class="address-form" type="text" formControlName="street">
+  </div>
+
+  <div>
+    <label for="city">
+      City
+    </label>
+    <input id="city" class="address-form" type="text" formControlName="city">
+  </div>
+
+  <div>
+    <label for="province">
+      Province
+    </label>
+    <input id="province" class="address-form" type="text" formControlName="province">
+  </div>
+
+  <div>
+    <label for="country">
+      Country
+    </label>
+    <input id="country" class="address-form" type="text" formControlName="country">
+  </div>
+
+  <div class=button-row>
+    <div class="button-left-container">
+      <button color="primary" mat-flat-button>Back</button>
+    </div>
+    <div class="button-right-container">
+      <button color="primary" mat-flat-button>Next</button>
+    </div>
+  </div>
+
+</form>
