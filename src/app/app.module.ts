@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 import { ToastrModule } from 'ngx-toastr'
 
 import { AppComponent } from './app.component';
@@ -12,8 +13,10 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductAlertsComponent } from './product-list/product-alerts/product-alerts.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
+import { PurchaseComponent } from './purchase/purchase.component';
 import { ShippingComponent } from './purchase-shipping/purchase-shipping.component';
 import { AddressComponent } from './purchase-address/purchase-address.component';
+import { PaymentComponent } from './purchase-payment/purchase-payment.component';
 
 @NgModule({
   imports: [
@@ -21,6 +24,7 @@ import { AddressComponent } from './purchase-address/purchase-address.component'
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MaterialModule,
     ToastrModule.forRoot({
       timeOut: 800,
       positionClass: 'toast-custom',
@@ -29,9 +33,15 @@ import { AddressComponent } from './purchase-address/purchase-address.component'
       { path: '', component: ProductListComponent },
       { path: 'products/:productId', component: ProductDetailsComponent },
       { path: 'cart', component: CartComponent },
-      { path: 'purchase/shipping', component: ShippingComponent },
-      { path: 'purchase/address', component: AddressComponent },
-    ])
+      { 
+        path: 'purchase', component: PurchaseComponent,
+        children: [
+          { path: 'shipping', component: ShippingComponent },
+          { path: 'address', component: AddressComponent },
+          { path: 'payment', component: PaymentComponent },
+        ]
+      },
+    ]),
   ],
   declarations: [
     AppComponent,
@@ -40,8 +50,10 @@ import { AddressComponent } from './purchase-address/purchase-address.component'
     ProductAlertsComponent,
     ProductDetailsComponent,
     CartComponent,
+    PurchaseComponent,
     ShippingComponent,
     AddressComponent,
+    PaymentComponent,
   ],
   bootstrap: [ AppComponent ]
 })

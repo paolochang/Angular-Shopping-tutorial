@@ -49,6 +49,15 @@
 
 /* Mobile demo on: Galaxy S5 */
 @media all and (max-width: 360px) {
+
+  .mat-stepper-label-position-bottom .mat-horizontal-stepper-header {
+    padding: 20px !important;
+  }
+
+  .horizontal-line {
+    top: 32px !important;
+  }
+
   input {
     width: 100%;
     min-width: 325px;
