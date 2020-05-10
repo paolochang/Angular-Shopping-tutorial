@@ -24,6 +24,7 @@
     "@material-ui/core": "^4.9.13",
     "@material-ui/utils": "^4.9.12",
     "material": "^0.4.3",
+    "material-icons": "^0.3.1",
     "ngx-toastr": "^12.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

@@ -20,6 +20,10 @@ export class CartService {
     return this.items;
   }
 
+  getNumOfItems() {
+    return this.items.length;
+  }
+
   clearCart() {
     this.items = [];
     // this.itemsTotal = 0;
