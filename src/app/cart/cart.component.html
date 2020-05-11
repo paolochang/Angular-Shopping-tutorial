@@ -1,13 +1,24 @@
 <h3>Cart</h3>
 
-<div class="cart-item" *ngFor="let item of items">
-  <span>{{ item.name }}</span>
-  <span>{{ item.price | currency }}</span>
-</div>
-
 <div class="empty-cart" *ngIf="items == 0">
   <span>Cart is empty</span>
 </div>
+
+<div *ngIf="items.length">
+  <div class="cart-item" *ngFor="let item of items">
+    <span>{{ item.name }}</span>
+    <span>{{ item.price | currency }}</span>
+    <mat-icon (click)="onRemoveButton(item)">remove_circle</mat-icon>
+    <span>{{ item.quantity }}</span>
+    <mat-icon (click)="onAddButton(item)">add_circle</mat-icon>
+  </div>
+  
+  <div>
+    <hr/>
+    <span>Total:</span><span class="billingCost">{{ cartTotal }}</span>
+  </div>
+</div>
+
 
 <!-- <div class="cart-summary" *ngIf="items.length">
   <hr/>
@@ -25,6 +36,8 @@
   </div>
 </div> -->
 
+
 <div class="button-right-container">
-  <button color="primary" mat-flat-button routerLink="/purchase">Purchase</button>
+  <button color="primary" mat-flat-button 
+          routerLink="/purchase" [disabled]="items == 0">Purchase</button>
 </div>

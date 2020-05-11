@@ -13,6 +13,7 @@ import { CartService } from '../cart.service';
 export class CartComponent implements OnInit {
 
   items;
+  cartTotal;
   // itemsTotal: number;
   // shippingCost: number;
   // finalTotal: number;
@@ -26,6 +27,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.items = this.cartService.getItems();
+    this.cartTotal = this.cartService.getCartTotal();
     // this.itemsTotal = this.cartService.getItemsTotal();
     // this.shippingCost = this.cartService.getShippingCost();
     // this.finalTotal = this.cartService.getFinalTotal();
@@ -34,8 +36,18 @@ export class CartComponent implements OnInit {
     //   window.console.log("Shipping changed: ");
     //   this.shppingCost = this.cartService.getShippingCost();
     // }
+    console.log(this.cartTotal)
   }
 
+  onAddButton(product) {
+    this.cartService.addItemQuantity(product);
+    this.cartTotal = this.cartService.getCartTotal();
+  }
+
+  onRemoveButton(product) {
+    this.cartService.removeItemQuantity(product);
+    this.cartTotal = this.cartService.getCartTotal();
+  }
 
   onFormValidation(customerData) {
     let isValid = this.onDataValidation('name', customerData.name);
