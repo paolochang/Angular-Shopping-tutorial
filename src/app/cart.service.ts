@@ -13,7 +13,13 @@ export class CartService {
   constructor() {}
 
   addToCart(product) {
-    this.items.push(product);
+    if (this.items.find(obj => obj.name == product.name)) {
+      this.addItemQuantity(product);
+    }
+    else {
+      product.quantity = 1;
+      this.items.push(product);
+    }
   }
 
   getItems() {
@@ -21,7 +27,28 @@ export class CartService {
   }
 
   getNumOfItems() {
-    return this.items.length;
+    let count: number = 0
+    this.items.forEach(item => count += item.quantity)
+    return count;
+  }
+
+  addItemQuantity(product) {
+    let index = this.items.findIndex(obj => obj.name == product.name);
+    this.items[index].quantity += 1;
+  }
+
+  removeItemQuantity(product) {
+    let index = this.items.findIndex(obj => obj.name == product.name);
+    this.items[index].quantity -= 1;
+    if (this.items[index].quantity == 0) {
+      this.items.splice(index, 1);
+    }
+  }
+
+  getCartTotal() {
+    let cartTotal: number = 0;
+    this.items.forEach(item => cartTotal += (item.price * item.quantity));
+    return cartTotal.toFixed(2);
   }
 
   clearCart() {
