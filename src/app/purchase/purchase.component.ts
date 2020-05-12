@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-purchase',
@@ -8,18 +8,25 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class PurchaseComponent implements OnInit {
 
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
+  constructor() { }
 
-  constructor( private _formBuilder: FormBuilder ) { }
+  purchaseFormGroup: FormGroup;
 
   ngOnInit(): void {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
+    
+    this.purchaseFormGroup = new FormGroup({
+      'shippingOptions': new FormGroup({
+        'shippingOption': new FormControl('', Validators.required),
+      }),
+      'addressDetails': new FormGroup({
+        'name': new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(3)]),
+        'street': new FormControl('', Validators.required),
+        'city': new FormControl('', Validators.required),
+        'province': new FormControl('', Validators.required),
+        'country': new FormControl('', Validators.required),
+        'email': new FormControl('', [Validators.required, Validators.email]),
+        'mobile': new FormControl(''),
+      })
+    })
   }
-
 }

@@ -1,14 +1,20 @@
-<mat-horizontal-stepper labelPosition="bottom">
-  <mat-step>
-    <app-purchase-shipping></app-purchase-shipping>
-  </mat-step>
-  <mat-step>
-    <app-purchase-address></app-purchase-address>
-  </mat-step>
-  <mat-step>
-    <app-purchase-payment></app-purchase-payment>
-  </mat-step>
-  <mat-step>
-    <app-purchase-confirmation></app-purchase-confirmation>
-  </mat-step>
-</mat-horizontal-stepper>
+<div id="purchase-process" class="conatiner col-md-12">
+  <form id="purchaseForm" [formGroup]="purchaseFormGroup">
+    <mat-horizontal-stepper #stepper linear labelPosition="bottom">
+      <mat-step formGroupName="shippingOptions"
+        [stepControl]="purchaseFormGroup.get('shippingOptions')">
+        <app-purchase-shipping></app-purchase-shipping>
+      </mat-step>
+      <mat-step formGroupName="addressDetails"
+        [stepControl]="purchaseFormGroup.get('addressDetails')">
+        <app-purchase-address [purchaseForm]="purchaseFormGroup"></app-purchase-address>
+      </mat-step>
+      <mat-step>
+        <app-purchase-payment></app-purchase-payment>
+      </mat-step>
+      <mat-step>
+        <app-purchase-confirmation></app-purchase-confirmation>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </form>
+</div>

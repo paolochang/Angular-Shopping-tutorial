@@ -1,50 +1,48 @@
-<form [formGroup]="checkoutForm"
-  (ngSubmit)="onSubmit(checkoutForm.value)">
+<div id="address-details" [formGroup]="purchaseForm">
 
   <h3>Shipping Information</h3>
 
-  <div>
-    <label for="name">
-      Name
-    </label>
-    <input id="name" class="address-form" type="text" formControlName="name">
+  <div formGroupName="addressDetails">
+    <label for="name">Name<i class="required">*</i></label>
+    <input id="name" class="form-control address-form" type="text" formControlName="name">
   </div>
 
-  <div>
-    <label for="street">
-      Street
-    </label>
+  <div formGroupName="addressDetails">
+    <label for="street">Street<i class="required">*</i></label>
     <input id="street" class="address-form" type="text" formControlName="street">
   </div>
 
-  <div>
-    <label for="city">
-      City
-    </label>
+  <div formGroupName="addressDetails">
+    <label for="city">City<i class="required">*</i></label>
     <input id="city" class="address-form" type="text" formControlName="city">
   </div>
 
-  <div>
-    <label for="province">
-      Province
-    </label>
+  <div formGroupName="addressDetails">
+    <label for="province">Province<i class="required">*</i></label>
     <input id="province" class="address-form" type="text" formControlName="province">
   </div>
 
-  <div>
-    <label for="country">
-      Country
-    </label>
+  <div formGroupName="addressDetails">
+    <label for="country">Country<i class="required">*</i></label>
     <input id="country" class="address-form" type="text" formControlName="country">
   </div>
 
-  <div class=button-row>
-    <div class="button-left-container">
-      <button color="primary" mat-flat-button>Back</button>
-    </div>
-    <div class="button-right-container">
-      <button color="primary" mat-flat-button>Next</button>
-    </div>
+  <div formGroupName="addressDetails">
+    <label for="country">email<i class="required">*</i></label>
+    <input id="country" class="address-form" type="text" formControlName="email">
   </div>
 
-</form>
+  <div formGroupName="addressDetails">
+    <label for="country">mobile</label>
+    <input id="country" class="address-form" type="text" formControlName="mobile">
+  </div>
+</div>
+
+<div class=button-row>
+  <div class="button-left-container">
+    <button mat-flat-button color="primary" matStepperPrevious>Back</button>
+  </div>
+  <div class="button-right-container">
+    <button mat-flat-button color="primary" matStepperNext (click)="onClickNext()">Next</button>
+  </div>
+</div>
