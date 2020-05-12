@@ -4,6 +4,10 @@
     min-width: 400px;
     max-width: 450px;
   }
+
+  .required {
+    color: #FF0000;
+  }
 }
 
 /* Mobile demo on: Galaxy S5 */
@@ -12,5 +16,9 @@
     width: 100%;
     min-width: 325px;
     max-width: 450px;
+  }
+
+  .required {
+    color: #FF0000;
   }
 }

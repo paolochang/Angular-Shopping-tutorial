@@ -1,8 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-// import { Router } from '@angular/router';
-
-import { AddressService } from '../purchase-address.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-purchase-address',
@@ -11,26 +8,25 @@ import { AddressService } from '../purchase-address.service';
 })
 export class AddressComponent implements OnInit {
 
-  checkoutForm;
+  constructor() {}
 
-  constructor(
-    private addressService: AddressService,
-    private formBuilder: FormBuilder,
-    // private router: Router,
-  ) {
-    this.checkoutForm = this.formBuilder.group({
-      name: '',
-      street: '',
-      city: '',
-      province: '',
-      country: ''
-    });
-  }
+  @Input() purchaseForm: FormGroup;
 
   ngOnInit() {}
 
-  onSubmit(customerData) {
-    // Process checkout data here
-    // this.router.navigate(['/shipping']);
+  onClickNext() {
+    console.log('onClickNext(): ');
+    this.purchaseForm.get('addressDetails').get('name').markAsTouched();
+    this.purchaseForm.get('addressDetails').get('name').updateValueAndValidity();
+    this.purchaseForm.get('addressDetails').get('street').markAsTouched();
+    this.purchaseForm.get('addressDetails').get('street').updateValueAndValidity();
+    this.purchaseForm.get('addressDetails').get('city').markAsTouched();
+    this.purchaseForm.get('addressDetails').get('city').updateValueAndValidity();
+    this.purchaseForm.get('addressDetails').get('province').markAsTouched();
+    this.purchaseForm.get('addressDetails').get('province').updateValueAndValidity();
+    this.purchaseForm.get('addressDetails').get('country').markAsTouched();
+    this.purchaseForm.get('addressDetails').get('country').updateValueAndValidity();
+    this.purchaseForm.get('addressDetails').get('email').markAsTouched();
+    this.purchaseForm.get('addressDetails').get('email').updateValueAndValidity();
   }
 }
