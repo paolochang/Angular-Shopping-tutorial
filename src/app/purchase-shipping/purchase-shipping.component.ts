@@ -21,9 +21,8 @@ export class ShippingComponent implements OnInit {
     this.shippingCosts = this.shippingService.getShippingCostReference();
   }
 
-  setShippingCost(shippingCost) {
-    window.console.log(shippingCost);
-    this.shippingService.setShippingCost(shippingCost);
+  selectShippingCost(shipping) {
+    this.shippingService.setShippingCost(shipping.price);
     // this.router.navigate(['/address']);
   }
 

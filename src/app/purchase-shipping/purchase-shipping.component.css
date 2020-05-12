@@ -25,6 +25,10 @@
     padding: 16px 32px;
     margin-bottom: 8px;
     border-radius: 2px;
-    background-color: #EEEEEE;
+    /* background-color: #EEEEEE; */
+  }
+
+  .selected {
+    /* background-color: #5CB85C; */
   }
 }
