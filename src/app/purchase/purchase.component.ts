@@ -16,7 +16,7 @@ export class PurchaseComponent implements OnInit {
     
     this.purchaseFormGroup = new FormGroup({
       'shippingOptions': new FormGroup({
-        'shippingOption': new FormControl('', Validators.required),
+        'shipping': new FormControl('', Validators.required),
       }),
       'addressDetails': new FormGroup({
         'name': new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(3)]),

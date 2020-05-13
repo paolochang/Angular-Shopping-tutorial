@@ -3,6 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
 
 const MaterialComponents = [
@@ -10,6 +11,7 @@ const MaterialComponents = [
   MatIconModule,
   MatBadgeModule,
   MatStepperModule,
+  MatRadioModule,
   MatInputModule,
 ];
 

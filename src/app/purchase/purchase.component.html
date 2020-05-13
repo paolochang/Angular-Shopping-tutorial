@@ -3,7 +3,7 @@
     <mat-horizontal-stepper #stepper linear labelPosition="bottom">
       <mat-step formGroupName="shippingOptions"
         [stepControl]="purchaseFormGroup.get('shippingOptions')">
-        <app-purchase-shipping></app-purchase-shipping>
+        <app-purchase-shipping [purchaseForm]="purchaseFormGroup"></app-purchase-shipping>
       </mat-step>
       <mat-step formGroupName="addressDetails"
         [stepControl]="purchaseFormGroup.get('addressDetails')">
