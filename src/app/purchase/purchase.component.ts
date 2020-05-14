@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
 @Component({
   selector: 'app-purchase',
   templateUrl: './purchase.component.html',
-  styleUrls: ['./purchase.component.css']
+  styleUrls: ['./purchase.component.css'],
+  providers: [{
+    provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}
+  }]
 })
 export class PurchaseComponent implements OnInit {
 
@@ -16,7 +20,7 @@ export class PurchaseComponent implements OnInit {
     
     this.purchaseFormGroup = new FormGroup({
       'shippingOptions': new FormGroup({
-        'shippingOption': new FormControl('', Validators.required),
+        'shipping': new FormControl('', Validators.required),
       }),
       'addressDetails': new FormGroup({
         'name': new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(3)]),
