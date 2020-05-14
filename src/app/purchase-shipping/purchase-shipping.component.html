@@ -1,30 +1,27 @@
 <div id="shipping-options" [formGroup]="purchaseForm">
   <h3>Shipping Prices</h3>
 
-  <div *ngFor="let shipping of shippingCosts | async"
+  <!-- <div *ngFor="let shipping of shippingCosts | async"
       [ngStyle]="{'background-color': (shipping.selected) ? '#5CB85C' : '#EEEEEE'}"
-      (click)="selectShippingCost(shipping)">
+      (click)="selectShippingCost(shipping)"> -->
+  <div *ngFor="let shipping of shippingCosts" >
     <div formGroupName="shippingOptions">
-      <mat-radio-group class="form-control shipping-item" formControlName="shipping" value="{{ shipping.price }}">
-        <span>{{ shipping.type }}</span>
-        <span>{{ shipping.price | currency }}</span>
+      <mat-radio-group class="form-control" formControlName="shipping">
+        <mat-radio-button class="shipping-item"
+                          [ngStyle]="{'background-color': (shipping.selected) ? '#5CB85C' : '#EEEEEE'}"
+                          [value]="shipping.price" [checked]="shipping.selected" 
+                          (change)="radioChecked(shipping)">
+          <span>{{ shipping.type }}</span>
+          <span>{{ shipping.price | currency }}</span>
+        </mat-radio-button>
       </mat-radio-group>
     </div>
   </div>
-
-  <!-- <div formGroupName="shippingOptions">
-    <mat-radio-button class="shipping-item" formControlName="shipping" value="1">
-      <span>1</span>
-    </mat-radio-button>
-    <mat-radio-button class="shipping-item" formControlName="shipping" value="2">
-      <span>2</span>
-    </mat-radio-button>
-  </div> -->
 </div>
 
 <div>
   <div class="button-left-container">
-    <button mat-flat-button color="primary" routerLink="/cart">Cart</button>
+    <button mat-flat-button color="primary" routerLink="/cart" (click)="onClickCart()">Cart</button>
   </div>
   <div class="button-right-container">
     <button mat-flat-button color="primary" matStepperNext (click)="onClickNext()">Next</button>

@@ -11,6 +11,7 @@ import { ShippingService } from '../purchase-shipping.service';
 export class ShippingComponent implements OnInit {
 
   shippingCosts;
+  disabled = false;
 
   constructor(
     private shippingService: ShippingService,
@@ -27,8 +28,24 @@ export class ShippingComponent implements OnInit {
     this.shippingService.setShippingCost(shipping.price);
   }
 
+  radioChecked(shipping) {
+    this.shippingCosts.forEach(item => {
+      if (item.type !== shipping.type) {
+        item.selected = false;
+      }
+      else {
+        item.selected = true;
+      }
+    });
+  }
+
+  onClickCart() {
+    this.shippingCosts.forEach(item => {
+      item.selected = false;
+    });
+  }
+
   onClickNext() {
-    console.log('onClickNext(): ' + this.shippingService.getShippingCost());
     this.purchaseForm.get('shippingOptions').get('shipping').markAsTouched();
     this.purchaseForm.get('shippingOptions').get('shipping').updateValueAndValidity();
   }

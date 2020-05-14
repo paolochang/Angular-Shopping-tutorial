@@ -16,7 +16,16 @@ export class ShippingService {
   ) {}
 
   getShippingCostReference() {
-    return this.http.get('/assets/shipping.json');
+    if (this.items.length == 0) {
+      this.http.get('/assets/shipping.json').toPromise().then(data => {
+        for (let key in data) {
+          if (data.hasOwnProperty(key)) {
+            this.items.push(data[key]);
+          }
+        }
+      });
+    }
+    return this.items;
   }
 
   getShippingCost() {

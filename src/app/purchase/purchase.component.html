@@ -1,11 +1,11 @@
 <div id="purchase-process" class="conatiner col-md-12">
   <form id="purchaseForm" [formGroup]="purchaseFormGroup">
     <mat-horizontal-stepper #stepper linear labelPosition="bottom">
-      <mat-step formGroupName="shippingOptions"
+      <mat-step formGroupName="shippingOptions" state="shipping"
         [stepControl]="purchaseFormGroup.get('shippingOptions')">
         <app-purchase-shipping [purchaseForm]="purchaseFormGroup"></app-purchase-shipping>
       </mat-step>
-      <mat-step formGroupName="addressDetails"
+      <mat-step formGroupName="addressDetails" state="address"
         [stepControl]="purchaseFormGroup.get('addressDetails')">
         <app-purchase-address [purchaseForm]="purchaseFormGroup"></app-purchase-address>
       </mat-step>
@@ -15,6 +15,14 @@
       <mat-step>
         <app-purchase-confirmation></app-purchase-confirmation>
       </mat-step>
+
+      <!-- Icon overrides. -->
+      <ng-template matStepperIcon="shipping">
+        <mat-icon>local_shipping</mat-icon>
+      </ng-template>
+      <ng-template matStepperIcon="address">
+        <mat-icon>home</mat-icon>
+      </ng-template>
     </mat-horizontal-stepper>
   </form>
 </div>

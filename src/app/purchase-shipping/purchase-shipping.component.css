@@ -15,6 +15,7 @@
 
 /* Mobile demo on: Galaxy S5 */
 @media all and (max-width: 360px) {
+
   .shipping-item {
     width: 100%;
     min-width: 325px;
@@ -26,5 +27,17 @@
     margin-bottom: 8px;
     border-radius: 2px;
     background-color: #EEEEEE;
+  }
+
+  ::ng-deep .mat-radio-button .mat-radio-container {
+    width: 0;
+  }
+  ::ng-deep .mat-radio-container .mat-radio-outer-circle,
+  ::ng-deep .mat-radio-container .mat-radio-inner-circle {
+    border: none;
+    width: 0;
+  }
+  ::ng-deep .mat-radio-ripple {
+    display: none !important;
   }
 }
