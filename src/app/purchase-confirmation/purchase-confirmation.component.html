@@ -1,10 +1,27 @@
-<p>purchase-confirmation works!</p>
+<div id="confirmation" [formGroup]="purchaseForm">
 
-<div>
-  <div class="button-left-container">
-    <button color="primary" mat-flat-button>Back</button>
+  <div *ngIf="items.length">
+    <div class="cart-item" *ngFor="let item of items">
+      <span>{{ item.name }}</span>
+      <span>{{ item.price | currency }}</span>
+      <span>{{ item.quantity }}</span>
+    </div>
+    
+    <div>
+      <hr/>
+      <span>Sub-total:</span><span class="billingCost">{{ cartTotal }}</span>
+      <span>Shipping:</span><span class="billingCost">{{ shippingCost }}</span>
+      <hr/>
+      <span>Total:</span><span class="billingCost">{{ grandTotal }}</span>
+    </div>
   </div>
-  <div class="button-right-container">
-    <button color="primary" mat-flat-button>Confirm</button>
+
+  <div>
+    <div class="button-left-container">
+      <button color="primary" mat-flat-button matStepperPrevious>Back</button>
+    </div>
+    <div class="button-right-container">
+      <button color="primary" mat-flat-button (click)="onSubmit()">Buy now</button>
+    </div>
   </div>
 </div>

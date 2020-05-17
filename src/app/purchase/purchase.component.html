@@ -9,11 +9,12 @@
         [stepControl]="purchaseFormGroup.get('addressDetails')">
         <app-purchase-address [purchaseForm]="purchaseFormGroup"></app-purchase-address>
       </mat-step>
-      <mat-step>
+      <!-- <mat-step>
         <app-purchase-payment></app-purchase-payment>
-      </mat-step>
-      <mat-step>
-        <app-purchase-confirmation></app-purchase-confirmation>
+      </mat-step> -->
+      <mat-step formGroupName="confirmation" state="confirm"
+        [stepControl]="purchaseFormGroup.get('confirmation')">
+        <app-purchase-confirmation [purchaseForm]="purchaseFormGroup"></app-purchase-confirmation>
       </mat-step>
 
       <!-- Icon overrides. -->
@@ -22,6 +23,9 @@
       </ng-template>
       <ng-template matStepperIcon="address">
         <mat-icon>home</mat-icon>
+      </ng-template>
+      <ng-template matStepperIcon="confirm">
+        <mat-icon>shopping_basket</mat-icon>
       </ng-template>
     </mat-horizontal-stepper>
   </form>

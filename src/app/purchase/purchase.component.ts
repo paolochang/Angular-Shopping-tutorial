@@ -30,6 +30,9 @@ export class PurchaseComponent implements OnInit {
         'country': new FormControl('', Validators.required),
         'email': new FormControl('', [Validators.required, Validators.email]),
         'mobile': new FormControl(''),
+      }),
+      'confirmation': new FormGroup({
+        'submit': new FormControl(''),
       })
     })
   }

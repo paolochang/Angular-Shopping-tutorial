@@ -28,6 +28,12 @@ export class ShippingService {
     return this.items;
   }
 
+  clearSelectedShipping() {
+    this.items.forEach((item, index) => {
+      item[index].selected = false;
+    })
+  }
+
   getShippingCost() {
     return this.shippingCost;
   }
