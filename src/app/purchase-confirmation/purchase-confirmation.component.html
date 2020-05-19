@@ -3,14 +3,18 @@
   <div *ngIf="items.length">
     <div class="cart-item" *ngFor="let item of items">
       <span>{{ item.name }}</span>
-      <span>{{ item.price | currency }}</span>
       <span>{{ item.quantity }}</span>
+      <span>{{ item.price | currency }}</span>
     </div>
     
     <div>
       <hr/>
-      <span>Sub-total:</span><span class="billingCost">{{ cartTotal }}</span>
-      <span>Shipping:</span><span class="billingCost">{{ shippingCost }}</span>
+      <p>
+        <span>Sub-total:</span><span class="billingCost">{{ cartTotal }}</span>
+      </p>
+      <p>
+        <span>Shipping:</span><span class="billingCost">{{ shippingCost }}</span>
+      </p>
       <hr/>
       <span>Total:</span><span class="billingCost">{{ grandTotal }}</span>
     </div>
